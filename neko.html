@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>教育費の話題カード</title>
+<style>
+:root{
+  /* 診断ページと同じ色。1枚ずつのカードを縦に並べ、話したものに印をつける形 */
+  --paper:#F5FBF8;--white:#fff;--soft:#E3F3EE;--line:#C4E0D8;--navy:#0F4A40;--ink:#17332D;--sub:#44605A;--green:#008E78;--accent:#C25E0C;
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:2px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:14px}
+.howto{margin:0;padding-left:1.4em;display:grid;gap:4px}
+.cards{display:grid;gap:12px}
+.card{background:var(--white);border:2px solid var(--line);border-left:6px solid var(--green);border-radius:14px;padding:16px;display:grid;gap:10px}
+.card .no{margin:0;font-size:14px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.card .q{margin:0;font-size:19px;font-weight:700;color:var(--navy);line-height:1.6;text-wrap:balance}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+label.f{display:grid;gap:6px;font-size:15px;font-weight:700;color:var(--sub)}
+textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;min-height:64px;resize:vertical}
+label.c{display:flex;gap:10px;align-items:center;cursor:pointer;font-size:15px;font-weight:700;color:var(--green)}
+label.c input{width:22px;height:22px;margin:0;accent-color:var(--green);flex:none}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:12px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-key="shiryo-neko">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <p class="eyebrow">ネコタイプ（柔軟×分担）の方へ</p>
+    <h1>5分で話せる 教育費の話題カード</h1>
+    <p class="lead">お互いのペースを大切にできるのが、このタイプの強みです。かしこまった話し合いでなくても大丈夫。お茶の時間に、カードを1枚だけ選んで話してみてください。</p>
+  </header>
+
+  <section>
+    <ol class="howto">
+      <li>月末など、ふたりがひと息つける時間に開きます。</li>
+      <li>気になるカードを1枚選んで、お互いに答えます。</li>
+      <li>答えをそろえる必要はありません。話したら印をつけておきます。</li>
+    </ol>
+  </section>
+
+  <div class="cards">
+    <article class="card">
+      <p class="no">カード 1</p>
+      <p class="q">子どもの頃、やってよかった習い事や経験は？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m1" data-f="カード1のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c1" data-f="カード1：子どもの頃、やってよかった習い事や経験は？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 2</p>
+      <p class="q">子どもに「これは経験させたい」と思うことは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m2" data-f="カード2のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c2" data-f="カード2：子どもに「これは経験させたい」と思うことは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 3</p>
+      <p class="q">教育費のことで、いまいちばん気になっていることは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m3" data-f="カード3のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c3" data-f="カード3：教育費のことで、いまいちばん気になっていることは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 4</p>
+      <p class="q">習い事や塾を「続ける・やめる」と決めるとき、大事にしたいことは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m4" data-f="カード4のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c4" data-f="カード4：習い事や塾を「続ける・やめる」と決めるとき、大事にしたいことは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 5</p>
+      <p class="q">進学先を選ぶとき、それぞれが大事にしたいことは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m5" data-f="カード5のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c5" data-f="カード5：進学先を選ぶとき、それぞれが大事にしたいことは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 6</p>
+      <p class="q">教育費のことで、相手に任せていて助かっていることは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m6" data-f="カード6のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c6" data-f="カード6：教育費のことで、相手に任せていて助かっていることは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 7</p>
+      <p class="q">次の1年で、ふたりで決めておきたいことは？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m7" data-f="カード7のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c7" data-f="カード7：次の1年で、ふたりで決めておきたいことは？">話した</label>
+    </article>
+    <article class="card">
+      <p class="no">カード 8</p>
+      <p class="q">次にこの話をするのは、いつ頃がよさそう？</p>
+      <label class="f">メモ（なくても大丈夫）<textarea id="n_m8" data-f="カード8のメモ"></textarea></label>
+      <label class="c"><input type="checkbox" id="n_c8" data-f="カード8：次にこの話をするのは、いつ頃がよさそう？">話した</label>
+    </article>
+  </div>
+
+  <section>
+    <button class="btn" id="copy" type="button">話した内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、LINEなどに貼り付けてパートナーに送れます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容と印を消す</button>
+  </section>
+
+  <footer>
+    <span>このカードは、ご家族で話すきっかけのためのものです。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEなどに貼り付けて送れます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false, orig=clearBtn.textContent;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容と印がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent=orig; msg.textContent='書いた内容と印を消しました。';
+  });
+})();
+</script>
+</body>
+</html>

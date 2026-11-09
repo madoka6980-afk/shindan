@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>家計共有チェック表</title>
+<style>
+:root{
+  /* 診断ページと同じ色。1列のカードに、スマホでそのまま書き込める形 */
+  --paper:#F5FBF8;--white:#fff;--soft:#E3F3EE;--line:#C4E0D8;--navy:#0F4A40;--ink:#17332D;--sub:#44605A;--green:#008E78;--accent:#C25E0C;
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:2px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:14px}
+h2{margin:0;font-size:20px;line-height:1.5;color:var(--navy);display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--green);font-variant-numeric:tabular-nums;flex:none}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+label.f{display:grid;gap:6px;font-weight:700;color:var(--navy)}
+input[type=text],textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+.checks{display:grid;gap:8px}
+label.c{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;background:var(--soft);border-radius:10px;cursor:pointer;line-height:1.6}
+label.c input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--green);flex:none}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.row{grid-template-columns:1fr}}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:12px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-key="shiryo-risu">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <p class="eyebrow">リスタイプ（計画×分担）の方へ</p>
+    <h1>半年に一度の 家計共有チェック表</h1>
+    <p class="lead">持ち場を決めて、こつこつ積み重ねられるのが、このタイプの強みです。半年に一度、担当でない方にも全体が見えるよう、この表を使って見せ合ってください。</p>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>見せ合う日</h2>
+    <div class="row">
+      <label class="f">今回<input type="text" id="r_day" data-f="今回見せ合う日" placeholder="例：4月の最初の日曜"></label>
+      <label class="f">次回（半年後）<input type="text" id="r_next" data-f="次回見せ合う日" placeholder="例：10月の最初の日曜"></label>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>担当の人が、前もって確かめること</h2>
+    <div class="checks">
+      <label class="c"><input type="checkbox" id="r_c1" data-f="教育費のための取り分けが、予定どおり続いているか確かめた"><span>教育費のための取り分けが、予定どおり続いているか確かめた</span></label>
+      <label class="c"><input type="checkbox" id="r_c2" data-f="引き落としや振替の口座・日付に、変わったところがないか確かめた"><span>引き落としや振替の口座・日付に、変わったところがないか確かめた</span></label>
+      <label class="c"><input type="checkbox" id="r_c3" data-f="この半年で増えた出費・減った出費を書き出した"><span>この半年で増えた出費・減った出費を書き出した</span></label>
+      <label class="c"><input type="checkbox" id="r_c4" data-f="次の半年の教育関連の予定（入学・更新・講習など）を書き出した"><span>次の半年の教育関連の予定（入学・更新・講習など）を書き出した</span></label>
+    </div>
+    <label class="f">確かめて気づいたこと<textarea id="r_n1" data-f="担当の人が気づいたこと"></textarea></label>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>ふたりで見せ合うとき</h2>
+    <div class="checks">
+      <label class="c"><input type="checkbox" id="r_c5" data-f="担当でない方に、お金の流れを一通り説明した"><span>担当でない方に、お金の流れを一通り説明した</span></label>
+      <label class="c"><input type="checkbox" id="r_c6" data-f="担当でない方から、気になる点を聞いた"><span>担当でない方から、気になる点を聞いた</span></label>
+      <label class="c"><input type="checkbox" id="r_c7" data-f="担当を変えるところ・手伝ってほしいところがあるか話した"><span>担当を変えるところ・手伝ってほしいところがあるか話した</span></label>
+    </div>
+    <label class="f">担当でない方から出た質問や気づき<textarea id="r_n2" data-f="担当でない方から出た質問や気づき"></textarea></label>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>次回までにやること</h2>
+    <label class="f">だれが・何を・いつまでに<textarea id="r_n3" data-f="次回までにやること" placeholder="例：習い事の月謝の変更を家計簿に反映する（夫・5月まで）"></textarea></label>
+  </section>
+
+  <section>
+    <button class="btn" id="copy" type="button">書いた内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、LINEなどに貼り付けてパートナーに送れます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容を消す</button>
+  </section>
+
+  <footer>
+    <span>この表は、ご家族で家計を共有するためのものです。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEなどに貼り付けて送れます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent='書いた内容を消す'; msg.textContent='書いた内容を消しました。';
+  });
+})();
+</script>
+</body>
+</html>

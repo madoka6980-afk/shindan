@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5問でわかる、あなたのタイプ</title>
+<meta property="og:title" content="5問でわかる、あなたのタイプ">
+<meta property="og:description" content="5問に答えるだけ。結果は傾向であり、断定ではありません。">
+<meta property="og:type" content="website">
+<script>
+/* =====================================================================
+   ここから下の4つの欄だけを書き換えてください。
+   欄の外（この枠より下のプログラム）は触らなくて大丈夫です。
+   書き方の決まり：文の前後の「"」は消さない。行の終わりの「,」も消さない。
+   ===================================================================== */
+
+/* ---------- ここを書き換える：①名前と肩書き ---------- */
+var OWNER = {
+  name:  "杉浦円",          // あなたの名前
+  title: "一円も無駄にできない時代だからこそ",          // 肩書き1行（会社名・商品名は入れない）
+  pageTitle: "わが家の教育費 備え方タイプ診断"  // ページの見出し
+};
+
+/* ---------- ここを書き換える：②質問5つと選択肢 ----------
+   1問につき選択肢は2つ。type には③で決めるタイプの記号（A/B/C/D）を書く。
+   その選択肢を選んだ人は、そのタイプに1点入ります。                */
+// ※このページでは type は判定に使いません。1つ目の選択肢＝A、2つ目＝B として、対応表のルールで判定します。
+//   選択肢の上下を入れ替えると判定が変わるので、入れ替えないでください。
+var QUESTIONS = [
+  { q: "旅行の準備はどっち派？",
+    a: [ { text: "早めに計画する", type: "D" },
+         { text: "近づいてから", type: "B" } ] },
+  { q: "貯金の仕方に近いのは？",
+    a: [ { text: "先に取り分ける", type: "D" },
+         { text: "残りを見て決める", type: "B" } ] },
+  { q: "家計の管理はどちらに近い？",
+    a: [ { text: "ふたりで見る", type: "C" },
+         { text: "担当を決める", type: "A" } ] },
+  { q: "大きな買い物の決め方は？",
+    a: [ { text: "ふたりで相談", type: "C" },
+         { text: "得意な方に任せる", type: "D" } ] },
+  { q: "教育費の話、近いのは？",
+    a: [ { text: "ふたりで先に決める", type: "C" },
+         { text: "各自でその都度", type: "A" } ] }
+];
+
+/* ---------- ここを書き換える：③タイプ名・一言・結果文 ----------
+   タイプは3〜4つ。記号（A/B/C/D）は②と合わせる。
+   結果文は120字前後。商品名・利回り・将来の数字は入れない。
+   タイプ名で人を下に見る言葉（浪費型など）は使わない。            */
+var TYPES = {
+  // このページの判定は対応表どおり（プログラム側の finish を参照）。
+  // 記号の意味は固定です：A=計画×ふたりで　B=計画×分担　C=柔軟×ふたりで　D=柔軟×分担
+  A: { name: "ペンギンタイプ",
+       one:  "計画×ふたりで",
+       text: "ふたりで同じ段取りを共有しながら、一歩ずつ進めるタイプです。得意なのは、教育費の予定を早めに話し合って形にすること。つまずきやすい所は、決めた計画を見直す機会が後回しになりやすいこと。年に一度、ふたりで話す日を決めておくのも一案です。友だち追加のあと、LINEで「ペンギン」と送ると、ふたりで使える教育費の話し合いメモが届きます。" },
+  B: { name: "リスタイプ",
+       one:  "計画×分担",
+       text: "それぞれの持ち場を決めて、計画的に積み重ねるタイプです。得意なのは、先取りなどの仕組みを作り、毎月の手間を減らすこと。つまずきやすい所は、担当でない方に全体の状況が伝わりにくいこと。半年に一度、数字を見せ合う時間を作るのも一案です。友だち追加のあと、LINEで「リス」と送ると、半年に一度の家計共有チェック表が届きます。" },
+  C: { name: "イルカタイプ",
+       one:  "柔軟×ふたりで",
+       text: "ふたりで声をかけ合い、状況を見ながら動きを変えるタイプです。得意なのは、進路や働き方の変化に合わせて話し合い、柔軟に組み直すこと。つまずきやすい所は、目の前の用事が重なると準備の順番が決まりにくいこと。大まかな目安だけ先に置くのも一案です。友だち追加のあと、LINEで「イルカ」と送ると、大まかな目安を書き込む教育費メモが届きます。" },
+  D: { name: "ネコタイプ",
+       one:  "柔軟×分担",
+       text: "それぞれのペースを大切にしながら、その時々で判断するタイプです。得意なのは、お互いの得意分野を生かして身軽に動くこと。つまずきやすい所は、ふたりの考えを合わせる機会が少なくなりやすいこと。月末のお茶の時間などに少し話すのも一案です。友だち追加のあと、LINEで「ネコ」と送ると、5分で話せる教育費の話題カードが届きます。" }
+};
+
+/* ---------- ここを書き換える：④LINEへの一言とURL ----------
+   url には LINE公式アカウントの友だち追加URL（lin.ee で始まる形）をそのまま貼る。
+   短縮URLは使わない。LINEが使えない人は mailto:あなたのメール でも可。   */
+var LINE = {
+  button: "このタイプの方向けの1枚を、LINEで受け取る",
+  url:    "https://lin.ee/pmBQmO2",
+  note:   "登録しても、こちらから売り込みの連絡はしません。"
+};
+
+/* ===================== ここから下は触らない ===================== */
+</script>
+<style>
+:root{--paper:#F5FBF8;--white:#fff;--soft:#E3F3EE;--line:#C4E0D8;--navy:#0F4A40;--ink:#17332D;--sub:#44605A;--green:#008E78;--gold:#F07A1C;--gold-l:#FFE27A}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;font-weight:500;font-size:18px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:28px 16px 60px}
+header{text-align:center;margin-bottom:22px}
+.who{display:inline-block;font-size:16px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:6px 16px}
+h1{font-size:28px;line-height:1.4;color:var(--navy);margin:14px 0 8px;font-weight:900}
+.lead{font-size:18px;color:var(--sub);margin:0}
+.card{background:var(--white);border:2px solid var(--line);border-radius:18px;padding:24px 20px;margin:16px 0}
+.prog{display:flex;gap:6px;margin-bottom:14px}
+.prog span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.prog span.on{background:var(--green)}
+.qn{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin:0 0 6px}
+.q{font-size:22px;font-weight:700;color:var(--navy);line-height:1.5;margin:0 0 18px}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:19px;font-weight:700;color:var(--navy);background:var(--soft);border:2px solid var(--line);border-radius:14px;padding:16px 18px;margin:10px 0;cursor:pointer;line-height:1.5}
+.opt:hover,.opt:focus-visible{border-color:var(--green);background:#fff;outline:none}
+.back{font:inherit;font-size:16px;font-weight:700;color:var(--sub);background:none;border:0;padding:8px 0;cursor:pointer;text-decoration:underline}
+.type-k{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin:0}
+.type-n{font-size:28px;font-weight:900;color:var(--navy);line-height:1.35;margin:6px 0 4px}
+.type-o{font-size:18px;font-weight:700;color:var(--sub);margin:0 0 16px}
+.type-t{font-size:19px;margin:0 0 20px}
+.btn{display:block;text-align:center;font-size:19px;font-weight:900;color:#fff;background:#06C755;border-radius:14px;padding:18px 16px;text-decoration:none;line-height:1.4}
+.btn:hover{filter:brightness(1.05)}
+.note{font-size:16px;color:var(--sub);text-align:center;margin:12px 0 0}
+.dis{font-size:16px;color:var(--sub);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.start{font:inherit;display:block;width:100%;font-size:21px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:14px;padding:18px;cursor:pointer}
+footer{text-align:center;font-size:15px;color:var(--sub);margin-top:30px}
+.retry{margin-top:16px;text-align:center}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="who" id="who"></span>
+    <h1 id="ttl"></h1>
+    <p class="lead">5問に答えるだけ。1分で終わります。</p>
+  </header>
+
+  <section class="card" id="intro">
+    <p style="margin:0 0 18px">名前や連絡先の入力はありません。答えはどこにも保存されません。</p>
+    <button class="start" id="startBtn">はじめる</button>
+  </section>
+
+  <section class="card" id="quiz" hidden>
+    <div class="prog" id="prog"></div>
+    <p class="qn" id="qn"></p>
+    <p class="q" id="q"></p>
+    <div id="opts"></div>
+    <button class="back" id="backBtn" hidden>ひとつ前に戻る</button>
+  </section>
+
+  <section class="card" id="result" hidden>
+    <p class="type-k">あなたのタイプ</p>
+    <p class="type-n" id="rName"></p>
+    <p class="type-o" id="rOne"></p>
+    <p class="type-t" id="rText"></p>
+    <a class="btn" id="rBtn" href="#" target="_blank" rel="noopener"></a>
+    <p class="note" id="rNote"></p>
+    <p class="dis">この結果は、答えから見た傾向です。診断や断定ではありません。特定の商品をおすすめするものでもありません。</p>
+    <div class="retry"><button class="back" id="retryBtn">もう一度やってみる</button></div>
+  </section>
+
+  <footer>このページは <span id="fName"></span> が作成しました。</footer>
+</div>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  document.title=OWNER.pageTitle;
+  $('who').textContent=OWNER.name+'｜'+OWNER.title;
+  $('ttl').textContent=OWNER.pageTitle;
+  $('fName').textContent=OWNER.name;
+  var i=0,ans=[];
+  function show(n){ ['intro','quiz','result'].forEach(function(k){$(k).hidden=(k!==n)}); window.scrollTo(0,0); }
+  function render(){
+    var Q=QUESTIONS[i];
+    $('prog').innerHTML=QUESTIONS.map(function(_,k){return '<span class="'+(k<=i?'on':'')+'"></span>'}).join('');
+    $('qn').textContent='質問 '+(i+1)+' / '+QUESTIONS.length;
+    $('q').textContent=Q.q;
+    var o=$('opts'); o.innerHTML='';
+    Q.a.forEach(function(a,j){
+      var b=document.createElement('button'); b.className='opt'; b.type='button'; b.textContent=a.text;
+      b.onclick=function(){ ans[i]=(j===0?'A':'B'); if(i<QUESTIONS.length-1){i++;render();} else {finish();} };
+      o.appendChild(b);
+    });
+    $('backBtn').hidden=(i===0);
+  }
+  function finish(){
+    // 進め方：Q1とQ2が同じならその答え、割れたらQ5（A=計画／B=柔軟）
+    // 役割　：Q3とQ4が同じならその答え、割れたらQ5（A=ふたりで／B=分担）
+    var plan=(ans[0]===ans[1])?ans[0]:ans[4];
+    var role=(ans[2]===ans[3])?ans[2]:ans[4];
+    var best=(plan==='A')?(role==='A'?'A':'B'):(role==='A'?'C':'D');
+    var T=TYPES[best];
+    $('rName').textContent=T.name; $('rOne').textContent=T.one; $('rText').textContent=T.text;
+    $('rBtn').textContent=LINE.button; $('rBtn').href=LINE.url; $('rNote').textContent=LINE.note;
+    show('result');
+  }
+  $('startBtn').onclick=function(){i=0;ans=[];render();show('quiz')};
+  $('backBtn').onclick=function(){ if(i>0){i--;render();} };
+  $('retryBtn').onclick=function(){show('intro')};
+})();
+</script>
+</body>
+</html>

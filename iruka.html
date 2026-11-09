@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>教育費の目安メモ</title>
+<style>
+:root{
+  /* 診断ページと同じ色。1列のカードに、スマホでそのまま書き込める形 */
+  --paper:#F5FBF8;--white:#fff;--soft:#E3F3EE;--line:#C4E0D8;--navy:#0F4A40;--ink:#17332D;--sub:#44605A;--green:#008E78;--accent:#C25E0C;
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:2px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:14px}
+h2{margin:0;font-size:20px;line-height:1.5;color:var(--navy);display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--green);font-variant-numeric:tabular-nums;flex:none}
+h3{margin:0;font-size:17px;color:var(--green)}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+.period{display:grid;gap:10px;padding:14px;background:var(--soft);border-radius:12px}
+label.f{display:grid;gap:6px;font-weight:700;color:var(--navy)}
+input[type=text],textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.period input[type=text],.period textarea{background:var(--white)}
+textarea{min-height:72px;resize:vertical}
+.checks{display:grid;gap:8px}
+label.c{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;background:var(--soft);border-radius:10px;cursor:pointer;line-height:1.6}
+label.c input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--green);flex:none}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:12px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-key="shiryo-iruka">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <p class="eyebrow">イルカタイプ（柔軟×ふたりで）の方へ</p>
+    <h1>大まかな目安を書き込む 教育費メモ</h1>
+    <p class="lead">状況に合わせて組み直せるのが、このタイプの強みです。細かく決めなくて大丈夫です。時期ごとに「だいたいこう」という目安だけ、先に置いておきましょう。</p>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>時期ごとの目安を置く</h2>
+    <p class="hint">わかる所だけで大丈夫です。書いた目安は、あとから何度でも書き直せます。</p>
+    <div class="period">
+      <h3>いま〜1年</h3>
+      <label class="f">ありそうなこと<textarea id="i_a1" data-f="いま〜1年：ありそうなこと" placeholder="例：英語教室を始めるかも"></textarea></label>
+      <label class="f">ふたりの目安・備え方のメモ<textarea id="i_b1" data-f="いま〜1年：目安・備え方"></textarea></label>
+    </div>
+    <div class="period">
+      <h3>2〜3年後</h3>
+      <label class="f">ありそうなこと<textarea id="i_a2" data-f="2〜3年後：ありそうなこと"></textarea></label>
+      <label class="f">ふたりの目安・備え方のメモ<textarea id="i_b2" data-f="2〜3年後：目安・備え方"></textarea></label>
+    </div>
+    <div class="period">
+      <h3>4〜6年後</h3>
+      <label class="f">ありそうなこと<textarea id="i_a3" data-f="4〜6年後：ありそうなこと"></textarea></label>
+      <label class="f">ふたりの目安・備え方のメモ<textarea id="i_b3" data-f="4〜6年後：目安・備え方"></textarea></label>
+    </div>
+    <div class="period">
+      <h3>それより先</h3>
+      <label class="f">ありそうなこと<textarea id="i_a4" data-f="それより先：ありそうなこと"></textarea></label>
+      <label class="f">ふたりの目安・備え方のメモ<textarea id="i_b4" data-f="それより先：目安・備え方"></textarea></label>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>いまの優先順位</h2>
+    <p class="hint">用事が重なったときに、どれから準備するかの目安です。</p>
+    <label class="f">1番目<input type="text" id="i_p1" data-f="優先順位1"></label>
+    <label class="f">2番目<input type="text" id="i_p2" data-f="優先順位2"></label>
+    <label class="f">3番目<input type="text" id="i_p3" data-f="優先順位3"></label>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>目安を見直すきっかけ</h2>
+    <p class="hint">こんなことがあったら、このメモを開いてふたりで話す、と決めておきます。当てはまりそうなものに印をつけてください。</p>
+    <div class="checks">
+      <label class="c"><input type="checkbox" id="i_c1" data-f="進学や進路の希望が変わったとき"><span>進学や進路の希望が変わったとき</span></label>
+      <label class="c"><input type="checkbox" id="i_c2" data-f="どちらかの働き方が変わったとき"><span>どちらかの働き方が変わったとき</span></label>
+      <label class="c"><input type="checkbox" id="i_c3" data-f="住まいや暮らす場所が変わったとき"><span>住まいや暮らす場所が変わったとき</span></label>
+      <label class="c"><input type="checkbox" id="i_c4" data-f="家族が増えたとき"><span>家族が増えたとき</span></label>
+    </div>
+    <label class="f">ほかに、わが家の見直しのきっかけ<input type="text" id="i_c5" data-f="ほかの見直しのきっかけ"></label>
+  </section>
+
+  <section>
+    <button class="btn" id="copy" type="button">書いた内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、LINEなどに貼り付けてパートナーに送れます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容を消す</button>
+  </section>
+
+  <footer>
+    <span>このメモは、ご家族で話し合うためのものです。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEなどに貼り付けて送れます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent='書いた内容を消す'; msg.textContent='書いた内容を消しました。';
+  });
+})();
+</script>
+</body>
+</html>
