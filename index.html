@@ -71,6 +71,8 @@ var TYPES = {
 var LINE = {
   button: "このタイプの方向けの1枚を、LINEで受け取る",
   url:    "https://lin.ee/pmBQmO2",
+  id:     "@874zlqng",          // ボタンで追加できないとき用のID
+  qr:     "line-qr.png",        // ボタンで追加できないとき用のQRコード画像
   note:   "登録しても、こちらから売り込みの連絡はしません。"
 };
 
@@ -107,6 +109,15 @@ h1{font-size:28px;line-height:1.4;color:var(--navy);margin:14px 0 8px;font-weigh
 footer{text-align:center;font-size:15px;color:var(--sub);margin-top:30px}
 .retry{margin-top:16px;text-align:center}
 [hidden]{display:none!important}
+/* ボタンで追加できないとき */
+.help{margin:16px 0 0;padding:14px 16px;border:2px dashed var(--line);border-radius:14px;display:grid;gap:10px}
+.help p,.help li{font-size:16px;line-height:1.7;margin:0}
+.help-warn{font-weight:700;color:#B4540A}
+.help-t{font-weight:700;color:var(--navy)}
+.help ol{margin:0;padding-left:1.3em;display:grid;gap:6px;color:var(--ink)}
+.help img{justify-self:center;width:160px;height:160px;display:block}
+.copy{font:inherit;font-size:14px;font-weight:700;color:var(--green);background:#fff;border:2px solid var(--green);border-radius:999px;padding:0 12px;margin-left:4px;cursor:pointer}
+.help-msg{min-height:1.5em;text-align:center;color:var(--navy)}
 /* 動物のイラスト */
 .zoo{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 6px}
 .zoo figure{margin:0;display:grid;justify-items:center;gap:2px}
@@ -226,6 +237,16 @@ footer{text-align:center;font-size:15px;color:var(--sub);margin-top:30px}
     <p class="type-t" id="rText"></p>
     <a class="btn" id="rBtn" href="#" target="_blank" rel="noopener"></a>
     <p class="note" id="rNote"></p>
+    <div class="help">
+      <p class="help-warn" id="inLine" hidden>LINEアプリの中でこのページを開いているため、上のボタンでは友だち追加できないことがあります。</p>
+      <p class="help-t">ボタンで追加できないときは、次のどちらかで追加できます。</p>
+      <ol>
+        <li>下のQRコードを長押しして画像を保存し、LINEの「QRコードリーダー」の画像ボタンから読み込む</li>
+        <li>LINEの「友だち追加」→「検索」→「ID」で <strong id="lineId"></strong> を検索する <button class="copy" id="copyId" type="button">IDをコピー</button></li>
+      </ol>
+      <img id="lineQr" alt="友だち追加用のQRコード" width="160" height="160">
+      <p class="help-msg" id="copyMsg" role="status"></p>
+    </div>
     <p class="dis">この結果は、答えから見た傾向です。診断や断定ではありません。特定の商品をおすすめするものでもありません。</p>
     <div class="retry"><button class="back" id="retryBtn">もう一度やってみる</button></div>
   </section>
@@ -240,6 +261,14 @@ footer{text-align:center;font-size:15px;color:var(--sub);margin-top:30px}
   $('ttl').textContent=OWNER.pageTitle;
   $('fName').textContent=OWNER.name;
   var MOTION={A:'waddle',B:'hop',C:'swim',D:'breathe'};
+  $('lineId').textContent=LINE.id||'';
+  $('lineQr').src=LINE.qr||'';
+  $('inLine').hidden=!/\bLine\//i.test(navigator.userAgent);
+  $('copyId').onclick=function(){
+    var m=$('copyMsg');
+    function fail(){ m.textContent='コピーできませんでした。IDは '+LINE.id+' です。'; }
+    try{ if(!navigator.clipboard){fail();return;} navigator.clipboard.writeText(LINE.id).then(function(){ m.textContent='IDをコピーしました。LINEのID検索に貼り付けてください。'; },fail); }catch(e){ fail(); }
+  };
   [].forEach.call(document.querySelectorAll('.zoo figure'),function(f){
     var T=TYPES[f.getAttribute('data-type')]; f.querySelector('figcaption').textContent=T?T.name.replace(/タイプ$/,''):'';
   });
