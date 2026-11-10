@@ -17,6 +17,12 @@ body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weigh
 .wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
 header{display:grid;gap:8px}
 .who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 2s ease-in-out infinite}
+@keyframes move{0%,55%,100%{transform:translateY(0)}25%{transform:translateY(-9px)}40%{transform:translateY(0)}47%{transform:translateY(-3px)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-.8s}
+section:nth-of-type(3n) .mini .move{animation-delay:-1.6s}
 .eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
 h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
 .lead{margin:0;color:var(--sub)}
@@ -37,20 +43,40 @@ input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px soli
 .btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
 .msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
 footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
 </style>
 </head>
 <body data-key="shiryo-risu">
 <div class="wrap">
   <header>
     <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="どんぐりを持ったリスのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <path d="M70 102 C104 100 112 62 98 40 C88 24 66 28 68 46 C70 62 92 62 88 80 C86 90 80 96 70 100 Z" fill="#D29A5E"/>
+        <ellipse cx="54" cy="84" rx="21" ry="22" fill="#B8733A"/>
+        <ellipse cx="50" cy="88" rx="12" ry="15" fill="#F3DCC0"/>
+        <path d="M40 40 L43 23 L54 37 Z" fill="#B8733A"/>
+        <path d="M43 36 L44.5 28 L50 35 Z" fill="#F3DCC0"/>
+        <circle cx="49" cy="54" r="18" fill="#B8733A"/>
+        <circle cx="43" cy="51" r="3.2" fill="#17332D"/>
+        <circle cx="32.5" cy="58" r="2.2" fill="#17332D"/>
+        <ellipse cx="44" cy="61" rx="4.5" ry="2.6" fill="#F7B6A8"/>
+        <ellipse cx="38" cy="84" rx="7" ry="8" fill="#8A5A2B"/>
+        <path d="M30 80 Q38 71 46 80 Z" fill="#5E3B1B"/>
+        <path d="M38 73 L38 69" stroke="#5E3B1B" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="46" cy="106" rx="7" ry="3.5" fill="#B8733A"/>
+        <ellipse cx="62" cy="106" rx="7" ry="3.5" fill="#B8733A"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#E3F3EE"/>
+      <g class="move"><use href="#pic"/></g>
+    </svg>
     <p class="eyebrow">リスタイプ（計画×分担）の方へ</p>
     <h1>半年に一度の 家計共有チェック表</h1>
     <p class="lead">持ち場を決めて、こつこつ積み重ねられるのが、このタイプの強みです。半年に一度、担当でない方にも全体が見えるよう、この表を使って見せ合ってください。</p>
   </header>
 
   <section>
-    <h2><span class="n">1</span>見せ合う日</h2>
+    <h2><span class="n">1</span>見せ合う日<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <div class="row">
       <label class="f">今回<input type="text" id="r_day" data-f="今回見せ合う日" placeholder="例：4月の最初の日曜"></label>
       <label class="f">次回（半年後）<input type="text" id="r_next" data-f="次回見せ合う日" placeholder="例：10月の最初の日曜"></label>
@@ -58,7 +84,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">2</span>担当の人が、前もって確かめること</h2>
+    <h2><span class="n">2</span>担当の人が、前もって確かめること<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <div class="checks">
       <label class="c"><input type="checkbox" id="r_c1" data-f="教育費のための取り分けが、予定どおり続いているか確かめた"><span>教育費のための取り分けが、予定どおり続いているか確かめた</span></label>
       <label class="c"><input type="checkbox" id="r_c2" data-f="引き落としや振替の口座・日付に、変わったところがないか確かめた"><span>引き落としや振替の口座・日付に、変わったところがないか確かめた</span></label>
@@ -69,7 +95,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">3</span>ふたりで見せ合うとき</h2>
+    <h2><span class="n">3</span>ふたりで見せ合うとき<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <div class="checks">
       <label class="c"><input type="checkbox" id="r_c5" data-f="担当でない方に、お金の流れを一通り説明した"><span>担当でない方に、お金の流れを一通り説明した</span></label>
       <label class="c"><input type="checkbox" id="r_c6" data-f="担当でない方から、気になる点を聞いた"><span>担当でない方から、気になる点を聞いた</span></label>
@@ -79,7 +105,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">4</span>次回までにやること</h2>
+    <h2><span class="n">4</span>次回までにやること<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <label class="f">だれが・何を・いつまでに<textarea id="r_n3" data-f="次回までにやること" placeholder="例：習い事の月謝の変更を家計簿に反映する（夫・5月まで）"></textarea></label>
   </section>
 

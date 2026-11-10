@@ -17,6 +17,12 @@ body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weigh
 .wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
 header{display:grid;gap:8px}
 .who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 2.6s ease-in-out infinite}
+@keyframes move{0%,100%{transform:translateY(5px) rotate(5deg)}50%{transform:translateY(-7px) rotate(-7deg)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-.8s}
+section:nth-of-type(3n) .mini .move{animation-delay:-1.6s}
 .eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
 h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
 .lead{margin:0;color:var(--sub)}
@@ -38,20 +44,36 @@ input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px soli
 .btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
 .msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
 footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
 </style>
 </head>
 <body data-key="shiryo-iruka">
 <div class="wrap">
   <header>
     <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="波の上をはねるイルカのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <path d="M30 76 L12 90 L17 74 L5 66 L24 68 Z" fill="#3C8FB8"/>
+        <path d="M56 41 Q60 26 74 22 Q66 32 74 42 Z" fill="#3C8FB8"/>
+        <path d="M100 53 Q114 53 115 58 Q112 62 99 62 Z" fill="#3C8FB8"/>
+        <path d="M14 72 C24 46 52 33 80 39 C92 42 101 49 107 57 C99 59 93 61 87 63 C73 76 48 82 28 78 Z" fill="#3C8FB8"/>
+        <path d="M36 77 C56 77 74 70 87 63 C77 73 58 81 36 79 Z" fill="#D8EEF6"/>
+        <path d="M56 71 L49 87 L64 75 Z" fill="#2F7AA0"/>
+        <circle cx="86" cy="50" r="3.2" fill="#17332D"/>
+        <path d="M95 59 Q99 61 103 59" stroke="#17332D" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#E3F3EE"/>
+      <path d="M8 100 Q18 93 28 100 T48 100 T68 100 T88 100 T108 100" stroke="#008E78" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M22 110 Q32 104 42 110 T62 110 T82 110 T102 110" stroke="#7CC4B4" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g class="move"><use href="#pic"/></g>
+    </svg>
     <p class="eyebrow">イルカタイプ（柔軟×ふたりで）の方へ</p>
     <h1>大まかな目安を書き込む 教育費メモ</h1>
     <p class="lead">状況に合わせて組み直せるのが、このタイプの強みです。細かく決めなくて大丈夫です。時期ごとに「だいたいこう」という目安だけ、先に置いておきましょう。</p>
   </header>
 
   <section>
-    <h2><span class="n">1</span>時期ごとの目安を置く</h2>
+    <h2><span class="n">1</span>時期ごとの目安を置く<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">わかる所だけで大丈夫です。書いた目安は、あとから何度でも書き直せます。</p>
     <div class="period">
       <h3>いま〜1年</h3>
@@ -76,7 +98,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">2</span>いまの優先順位</h2>
+    <h2><span class="n">2</span>いまの優先順位<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">用事が重なったときに、どれから準備するかの目安です。</p>
     <label class="f">1番目<input type="text" id="i_p1" data-f="優先順位1"></label>
     <label class="f">2番目<input type="text" id="i_p2" data-f="優先順位2"></label>
@@ -84,7 +106,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">3</span>目安を見直すきっかけ</h2>
+    <h2><span class="n">3</span>目安を見直すきっかけ<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">こんなことがあったら、このメモを開いてふたりで話す、と決めておきます。当てはまりそうなものに印をつけてください。</p>
     <div class="checks">
       <label class="c"><input type="checkbox" id="i_c1" data-f="進学や進路の希望が変わったとき"><span>進学や進路の希望が変わったとき</span></label>

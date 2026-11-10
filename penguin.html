@@ -17,6 +17,12 @@ body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weigh
 .wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
 header{display:grid;gap:8px}
 .who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 2.4s ease-in-out infinite}
+@keyframes move{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-.8s}
+section:nth-of-type(3n) .mini .move{animation-delay:-1.6s}
 .eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
 h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
 .lead{margin:0;color:var(--sub)}
@@ -34,20 +40,39 @@ input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px soli
 .btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
 .msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
 footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
 </style>
 </head>
 <body data-key="shiryo-penguin">
 <div class="wrap">
   <header>
     <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="ペンギンのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <ellipse cx="31" cy="74" rx="7" ry="16" fill="#0F4A40" transform="rotate(20 31 74)"/>
+        <ellipse cx="89" cy="74" rx="7" ry="16" fill="#0F4A40" transform="rotate(-20 89 74)"/>
+        <ellipse cx="60" cy="68" rx="30" ry="38" fill="#0F4A40"/>
+        <ellipse cx="60" cy="76" rx="20" ry="27" fill="#FFFFFF"/>
+        <circle cx="51" cy="49" r="7" fill="#FFFFFF"/>
+        <circle cx="69" cy="49" r="7" fill="#FFFFFF"/>
+        <circle cx="52" cy="50" r="3.5" fill="#17332D"/>
+        <circle cx="68" cy="50" r="3.5" fill="#17332D"/>
+        <path d="M54 59 L66 59 L60 67 Z" fill="#F07A1C"/>
+        <ellipse cx="44" cy="80" rx="4" ry="2.5" fill="#F7B6A8"/>
+        <ellipse cx="76" cy="80" rx="4" ry="2.5" fill="#F7B6A8"/>
+        <ellipse cx="50" cy="106" rx="8" ry="4" fill="#F07A1C"/>
+        <ellipse cx="70" cy="106" rx="8" ry="4" fill="#F07A1C"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#E3F3EE"/>
+      <g class="move"><use href="#pic"/></g>
+    </svg>
     <p class="eyebrow">ペンギンタイプ（計画×ふたりで）の方へ</p>
     <h1>ふたりで使える 教育費の話し合いメモ</h1>
     <p class="lead">ふたりで段取りを共有できるのが、このタイプの強みです。話し合いの前にこのメモを開いて、上から順に書いてみてください。</p>
   </header>
 
   <section>
-    <h2><span class="n">1</span>話し合う日を決める</h2>
+    <h2><span class="n">1</span>話し合う日を決める<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">決めた計画を見直す日を、先に決めておきます。年に一度が目安です。</p>
     <div class="row">
       <label class="f">今回話す日<input type="text" id="p_day" data-f="今回話す日" placeholder="例：11月の第2土曜の夜"></label>
@@ -56,7 +81,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">2</span>これからの予定を書き出す</h2>
+    <h2><span class="n">2</span>これからの予定を書き出す<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">入学、習い事、塾、受験など。決まっていないことは「〜かも」で大丈夫です。</p>
     <label class="f">今年〜来年<textarea id="p_y1" data-f="今年〜来年の予定" placeholder="例：上の子が小学校入学。スイミングを続けるか決める"></textarea></label>
     <label class="f">2〜3年後<textarea id="p_y3" data-f="2〜3年後の予定"></textarea></label>
@@ -64,7 +89,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">3</span>ふたりで聞き合う</h2>
+    <h2><span class="n">3</span>ふたりで聞き合う<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <p class="hint">答えをそろえる必要はありません。お互いの考えを知るための問いです。</p>
     <label class="f">教育費で、いちばん大事にしたいことは？<textarea id="p_q1" data-f="教育費で、いちばん大事にしたいこと"></textarea></label>
     <label class="f">いまの段取りで、気になっていることは？<textarea id="p_q2" data-f="いまの段取りで気になっていること"></textarea></label>
@@ -72,7 +97,7 @@ footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
   </section>
 
   <section>
-    <h2><span class="n">4</span>決めたことを残す</h2>
+    <h2><span class="n">4</span>決めたことを残す<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
     <label class="f">今回決めたこと<textarea id="p_d1" data-f="今回決めたこと"></textarea></label>
     <label class="f">次の見直しまでにやること（だれが・いつまでに）<textarea id="p_d2" data-f="次の見直しまでにやること" placeholder="例：塾の説明会の日程を調べる（わたし・12月まで）"></textarea></label>
   </section>
