@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5分でできる教育費の先読みメモ</title>
+<style>
+:root{
+  /* ひとり親版の診断ページと同じ、温かい配色 */
+  --paper:#FFF8F1;--white:#fff;--soft:#FDEEE2;--line:#F2DCCB;--navy:#6B3A2A;--ink:#4A2E24;--sub:#7D5B4C;--green:#C2603F;--accent:#B56A1E;
+  --font:"Hiragino Maru Gothic ProN","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 2s ease-in-out infinite}
+@keyframes move{0%,55%,100%{transform:translateY(0)}25%{transform:translateY(-9px)}40%{transform:translateY(0)}47%{transform:translateY(-3px)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-.7s}
+section:nth-of-type(3n) .mini .move{animation-delay:-1.4s}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:1.5px solid var(--line);border-radius:22px;padding:20px 18px;display:grid;gap:14px;box-shadow:0 6px 18px rgba(194,96,63,.07)}
+h2{margin:0;font-size:20px;line-height:1.5;color:var(--navy);display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--green);font-variant-numeric:tabular-nums;flex:none}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+label.f{display:grid;gap:6px;font-weight:700;color:var(--navy)}
+label.c{display:grid;grid-template-columns:22px 1fr;column-gap:10px;align-items:start;font-weight:700;color:var(--navy);background:var(--soft);border-radius:12px;padding:10px 12px}
+label.c input{width:22px;height:22px;margin:3px 0 0;accent-color:var(--green);flex:none}
+input[type=text],textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.row{grid-template-columns:1fr}}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:999px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
+</style>
+</head>
+<body data-key="shiryo-usagi">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="ウサギのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <ellipse cx="49" cy="30" rx="8" ry="22" fill="#EED8C4" transform="rotate(-8 49 30)"/>
+        <ellipse cx="71" cy="30" rx="8" ry="22" fill="#EED8C4" transform="rotate(8 71 30)"/>
+        <ellipse cx="49" cy="31" rx="4" ry="15" fill="#F6B9AC" transform="rotate(-8 49 31)"/>
+        <ellipse cx="71" cy="31" rx="4" ry="15" fill="#F6B9AC" transform="rotate(8 71 31)"/>
+        <circle cx="86" cy="94" r="8" fill="#FFF8F1"/>
+        <ellipse cx="60" cy="88" rx="24" ry="20" fill="#EED8C4"/>
+        <ellipse cx="60" cy="92" rx="13" ry="13" fill="#FBF0E6"/>
+        <circle cx="60" cy="60" r="21" fill="#EED8C4"/>
+        <circle cx="52" cy="58" r="3.3" fill="#4A2E24"/>
+        <circle cx="68" cy="58" r="3.3" fill="#4A2E24"/>
+        <path d="M57.5 65 L62.5 65 L60 68 Z" fill="#D9786A"/>
+        <path d="M60 68 Q57 72 54 70 M60 68 Q63 72 66 70" stroke="#4A2E24" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <ellipse cx="46" cy="66" rx="4" ry="2.5" fill="#F4A99A"/>
+        <ellipse cx="74" cy="66" rx="4" ry="2.5" fill="#F4A99A"/>
+        <ellipse cx="48" cy="106" rx="9" ry="4" fill="#E3C7AF"/>
+        <ellipse cx="72" cy="106" rx="9" ry="4" fill="#E3C7AF"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#FCE9DA"/>
+      <g class="move"><use href="#pic"/></g>
+    </svg>
+    <p class="eyebrow">ウサギタイプ（柔軟×自分で）の方へ</p>
+    <h1>5分でできる 教育費の先読みメモ</h1>
+    <p class="lead">その時どきで身軽に動けるのが、このタイプの強みです。ただ、目の前のことに追われて先の準備が後回しになりがち。月に一度、5分だけこのメモを開いて、少し先をのぞいてみてください。</p>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>先読みする日を決める<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">給料日や、子どもが寝たあとの決まった夜など、思い出しやすい日がおすすめです。</p>
+    <label class="f">毎月の先読みの日<input type="text" id="u_day" data-f="毎月の先読みの日" placeholder="例：毎月25日の夜"></label>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>この先3か月の予定をざっと書く<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">学校の行事、季節の出費、手当の届け出など。思いついた順で大丈夫です。</p>
+    <label class="f">来月<textarea id="u_m1" data-f="来月の予定" placeholder="例：遠足、上ばきの買いかえ"></textarea></label>
+    <label class="f">2〜3か月後<textarea id="u_m3" data-f="2〜3か月後の予定"></textarea></label>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>気になる出費を1つだけ選ぶ<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">全部を考えなくて大丈夫です。今月は1つだけ。</p>
+    <label class="f">いちばん気になる出費<input type="text" id="u_one" data-f="いちばん気になる出費" placeholder="例：来年の制服代"></label>
+    <label class="f">それはいつごろ？<input type="text" id="u_when" data-f="いつごろ" placeholder="例：来年の3月"></label>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>次の小さな1歩<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">できそうなものに印をつけてください。1つできれば十分です。</p>
+    <label class="c"><input type="checkbox" id="u_c1" data-f="だいたいの金額を調べる">だいたいの金額を調べる</label>
+    <label class="c"><input type="checkbox" id="u_c2" data-f="使える手当や助けがないか調べる">使える手当や助けがないか調べる</label>
+    <label class="c"><input type="checkbox" id="u_c3" data-f="毎月少しずつ取り分けはじめる">毎月少しずつ取り分けはじめる</label>
+    <label class="f">自分で決めた1歩<input type="text" id="u_step" data-f="自分で決めた1歩"></label>
+  </section>
+
+  <section>
+    <button class="btn" id="copy" type="button">書いた内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、自分のLINEのメモなどに貼り付けて残せます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容を消す</button>
+  </section>
+
+  <footer>
+    <span>このメモは、ご自身で先の予定を整理するためのものです。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEのメモなどに貼り付けて残せます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent='書いた内容を消す'; msg.textContent='書いた内容を消しました。';
+  });
+})();
+</script>
+</body>
+</html>

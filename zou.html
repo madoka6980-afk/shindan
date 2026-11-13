@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手当や制度の確認チェックリスト</title>
+<style>
+:root{
+  /* ひとり親版の診断ページと同じ、温かい配色 */
+  --paper:#FFF8F1;--white:#fff;--soft:#FDEEE2;--line:#F2DCCB;--navy:#6B3A2A;--ink:#4A2E24;--sub:#7D5B4C;--green:#C2603F;--accent:#B56A1E;
+  --font:"Hiragino Maru Gothic ProN","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 3.4s ease-in-out infinite}
+@keyframes move{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(3deg) scale(1.03)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-1.1s}
+section:nth-of-type(3n) .mini .move{animation-delay:-2.2s}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:1.5px solid var(--line);border-radius:22px;padding:20px 18px;display:grid;gap:14px;box-shadow:0 6px 18px rgba(194,96,63,.07)}
+h2{margin:0;font-size:20px;line-height:1.5;color:var(--navy);display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--green);font-variant-numeric:tabular-nums;flex:none}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+label.f{display:grid;gap:6px;font-weight:700;color:var(--navy)}
+label.c{display:grid;grid-template-columns:22px 1fr;column-gap:10px;align-items:start;font-weight:700;color:var(--navy);background:var(--soft);border-radius:12px;padding:10px 12px}
+label.c input{width:22px;height:22px;margin:3px 0 0;accent-color:var(--green);flex:none}
+label.c small{grid-column:2;display:block;font-weight:500;font-size:14px;color:var(--sub)}
+input[type=text],textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.row{grid-template-columns:1fr}}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:999px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
+</style>
+</head>
+<body data-key="shiryo-zou">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="ゾウのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <ellipse cx="60" cy="90" rx="28" ry="18" fill="#9FAEC0"/>
+        <rect x="40" y="94" width="13" height="16" rx="6" fill="#9FAEC0"/>
+        <rect x="67" y="94" width="13" height="16" rx="6" fill="#9FAEC0"/>
+        <ellipse cx="30" cy="54" rx="17" ry="21" fill="#8D9DB1"/>
+        <ellipse cx="90" cy="54" rx="17" ry="21" fill="#8D9DB1"/>
+        <ellipse cx="31" cy="55" rx="10" ry="14" fill="#F2C0B5"/>
+        <ellipse cx="89" cy="55" rx="10" ry="14" fill="#F2C0B5"/>
+        <circle cx="60" cy="54" r="25" fill="#A9B7C8"/>
+        <path d="M53 64 C52 80 54 92 64 96 C71 98 74 92 70 89 C64 88 62 82 66 64 Z" fill="#A9B7C8"/>
+        <circle cx="50" cy="51" r="3.5" fill="#4A2E24"/>
+        <circle cx="70" cy="51" r="3.5" fill="#4A2E24"/>
+        <ellipse cx="44" cy="62" rx="4.5" ry="2.8" fill="#F4A99A"/>
+        <ellipse cx="76" cy="62" rx="4.5" ry="2.8" fill="#F4A99A"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#FCE9DA"/>
+      <g class="move"><use href="#pic"/></g>
+    </svg>
+    <p class="eyebrow">ゾウタイプ（計画×頼る）の方へ</p>
+    <h1>手当や制度の 確認チェックリスト</h1>
+    <p class="lead">まわりの人や制度を味方にできるのが、このタイプの強みです。ただ、手続きや期限が重なると確認が追いつかなくなりがち。使っているもの・まだのもの・期限を、この1枚にまとめておきましょう。</p>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>いま受けているものに印をつける<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">名前や条件は市区町村や学校によって違います。わからないものは、そのままで大丈夫です。</p>
+    <label class="c"><input type="checkbox" id="z_c1" data-f="児童扶養手当">児童扶養手当<small>ひとり親家庭向けの手当。毎年の届け出が必要です。</small></label>
+    <label class="c"><input type="checkbox" id="z_c2" data-f="児童手当">児童手当<small>子どもがいる家庭向けの手当です。</small></label>
+    <label class="c"><input type="checkbox" id="z_c3" data-f="就学援助">就学援助<small>小・中学校の学用品や給食費などの助けです。</small></label>
+    <label class="c"><input type="checkbox" id="z_c4" data-f="ひとり親家庭の医療費助成">ひとり親家庭の医療費助成<small>市区町村によって名前や内容が違います。</small></label>
+    <label class="c"><input type="checkbox" id="z_c5" data-f="高校・大学の学費の支援や奨学金">高校・大学の学費の支援や奨学金<small>返さなくてよいものもあります。</small></label>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>まだ確かめていないもの<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">1で印がつかなかったものや、人から聞いて気になっているものを書いてください。</p>
+    <label class="f">確かめたいもの<textarea id="z_todo" data-f="まだ確かめていないもの" placeholder="例：就学援助が使えるか、学校に聞く"></textarea></label>
+    <label class="f">だれに聞くか<input type="text" id="z_who" data-f="だれに聞くか" placeholder="例：市役所の子育ての窓口、担任の先生"></label>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>届け出や申し込みの時期を並べる<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">届いた書類や窓口で聞いた時期を書き写しておくと、うっかりを防げます。</p>
+    <label class="f">春（3〜5月）<textarea id="z_s1" data-f="春（3〜5月）の届け出・申し込み"></textarea></label>
+    <label class="f">夏（6〜8月）<textarea id="z_s2" data-f="夏（6〜8月）の届け出・申し込み"></textarea></label>
+    <label class="f">秋・冬（9〜2月）<textarea id="z_s3" data-f="秋・冬（9〜2月）の届け出・申し込み"></textarea></label>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>相談先をメモしておく<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <div class="row">
+      <label class="f">窓口の名前<input type="text" id="z_place" data-f="窓口の名前" placeholder="例：〇〇市 子育て支援課"></label>
+      <label class="f">電話や受付時間<input type="text" id="z_tel" data-f="電話や受付時間"></label>
+    </div>
+    <label class="f">聞いたこと・言われたこと<textarea id="z_note" data-f="聞いたこと・言われたこと"></textarea></label>
+  </section>
+
+  <section>
+    <button class="btn" id="copy" type="button">書いた内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、自分のLINEのメモなどに貼り付けて残せます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容を消す</button>
+  </section>
+
+  <footer>
+    <span>このチェックリストは、ご自身で確認するためのものです。制度の名前や条件は、お住まいの市区町村で確かめてください。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEのメモなどに貼り付けて残せます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent='書いた内容を消す'; msg.textContent='書いた内容を消しました。';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>頼れる先と制度をまとめるメモ</title>
+<style>
+:root{
+  /* ひとり親版の診断ページと同じ、温かい配色 */
+  --paper:#FFF8F1;--white:#fff;--soft:#FDEEE2;--line:#F2DCCB;--navy:#6B3A2A;--ink:#4A2E24;--sub:#7D5B4C;--green:#C2603F;--accent:#B56A1E;
+  --font:"Hiragino Maru Gothic ProN","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:17px;line-height:1.8;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:16px}
+header{display:grid;gap:8px}
+.who{justify-self:start;font-size:14px;font-weight:700;color:var(--sub);background:var(--soft);border-radius:999px;padding:4px 14px}
+.animal{width:104px;height:104px;display:block;margin-top:6px}
+.mini{width:44px;height:44px;margin-left:auto;flex:none;align-self:center}
+.move{transform-box:fill-box;transform-origin:50% 100%;animation:move 3s ease-in-out infinite}
+@keyframes move{0%,100%{transform:translateY(3px) rotate(-3deg)}50%{transform:translateY(-5px) rotate(3deg)}}
+section:nth-of-type(2n) .mini .move{animation-delay:-1s}
+section:nth-of-type(3n) .mini .move{animation-delay:-2s}
+.eyebrow{margin:8px 0 0;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+h1{margin:0;font-size:27px;line-height:1.4;color:var(--navy);font-weight:900;text-wrap:balance}
+.lead{margin:0;color:var(--sub)}
+section{background:var(--white);border:1.5px solid var(--line);border-radius:22px;padding:20px 18px;display:grid;gap:14px;box-shadow:0 6px 18px rgba(194,96,63,.07)}
+h2{margin:0;font-size:20px;line-height:1.5;color:var(--navy);display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--green);font-variant-numeric:tabular-nums;flex:none}
+.hint{margin:0;font-size:15px;color:var(--sub)}
+label.f{display:grid;gap:6px;font-weight:700;color:var(--navy)}
+label.c{display:grid;grid-template-columns:22px 1fr;column-gap:10px;align-items:start;font-weight:700;color:var(--navy);background:var(--soft);border-radius:12px;padding:10px 12px}
+label.c input{width:22px;height:22px;margin:3px 0 0;accent-color:var(--green);flex:none}
+label.c small{grid-column:2;display:block;font-weight:500;font-size:14px;color:var(--sub)}
+input[type=text],textarea{font:inherit;font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.row{grid-template-columns:1fr}}
+.btn{font:inherit;font-size:18px;font-weight:900;color:#fff;background:var(--green);border:0;border-radius:999px;padding:16px;cursor:pointer}
+.btn2{font:inherit;font-size:15px;font-weight:700;color:var(--sub);background:none;border:0;padding:6px;cursor:pointer;text-decoration:underline;justify-self:center}
+.msg{margin:0;min-height:1.8em;text-align:center;font-size:15px;color:var(--navy)}
+footer{font-size:14px;color:var(--sub);display:grid;gap:4px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.move{animation:none}}
+</style>
+</head>
+<body data-key="shiryo-rakko">
+<div class="wrap">
+  <header>
+    <span class="who">杉浦円｜一円も無駄にできない時代だからこそ</span>
+    <svg class="animal" viewBox="0 0 120 120" role="img" aria-label="ラッコのイラスト">
+      <defs><symbol id="pic" viewBox="0 0 120 120">
+        <ellipse cx="60" cy="80" rx="27" ry="28" fill="#94694C"/>
+        <ellipse cx="60" cy="84" rx="17" ry="20" fill="#B88A68"/>
+        <circle cx="40" cy="36" r="6" fill="#94694C"/>
+        <circle cx="80" cy="36" r="6" fill="#94694C"/>
+        <circle cx="60" cy="50" r="23" fill="#94694C"/>
+        <ellipse cx="60" cy="56" rx="17" ry="13" fill="#F1E1CE"/>
+        <circle cx="52" cy="48" r="3.3" fill="#4A2E24"/>
+        <circle cx="68" cy="48" r="3.3" fill="#4A2E24"/>
+        <ellipse cx="60" cy="55" rx="4" ry="2.8" fill="#4A2E24"/>
+        <path d="M60 58 Q57 62 54 60 M60 58 Q63 62 66 60" stroke="#4A2E24" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path d="M44 56 L36 54 M44 59 L36 61 M76 56 L84 54 M76 59 L84 61" stroke="#C9A27F" stroke-width="1.4" stroke-linecap="round"/>
+        <ellipse cx="45" cy="63" rx="3.5" ry="2.2" fill="#F4A99A"/>
+        <ellipse cx="75" cy="63" rx="3.5" ry="2.2" fill="#F4A99A"/>
+        <path d="M60 88 C52 80 46 74 52 70 C56 68 59 71 60 74 C61 71 64 68 68 70 C74 74 68 80 60 88 Z" fill="#F08A7E"/>
+        <ellipse cx="47" cy="76" rx="7" ry="5" fill="#7E583E"/>
+        <ellipse cx="73" cy="76" rx="7" ry="5" fill="#7E583E"/>
+      </symbol></defs>
+      <circle cx="60" cy="60" r="58" fill="#FCE9DA"/>
+      <g class="move"><use href="#pic"/></g>
+      <path d="M14 104 Q26 96 38 104 T62 104 T86 104 T110 104 L110 112 Q60 122 10 112 Z" fill="#BFE0E6"/>
+    </svg>
+    <p class="eyebrow">ラッコタイプ（柔軟×頼る）の方へ</p>
+    <h1>頼れる先と制度を まとめるメモ</h1>
+    <p class="lead">困ったときに早めに声をかけられるのが、このタイプの強みです。ただ、相談先や手続きがばらばらだと、全体が見えにくくなりがち。頼れる先を、この1枚にまとめておきましょう。</p>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>頼れる人を書き出す<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">名前でなくても、「実家の母」「近所の友だち」のような書き方で大丈夫です。</p>
+    <label class="f">急なお迎えや看病を頼める人<input type="text" id="r_p1" data-f="急なお迎えや看病を頼める人"></label>
+    <label class="f">お金や手続きのことを相談できる人<input type="text" id="r_p2" data-f="お金や手続きのことを相談できる人"></label>
+    <label class="f">気持ちの話を聞いてくれる人<input type="text" id="r_p3" data-f="気持ちの話を聞いてくれる人"></label>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>相談できる窓口をまとめる<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">市区町村の子育て・ひとり親の窓口、学校、児童館など。電話や受付時間も書いておくと、いざというとき迷いません。</p>
+    <div class="row">
+      <label class="f">窓口①<input type="text" id="r_w1" data-f="窓口①" placeholder="例：〇〇市 子育て支援課"></label>
+      <label class="f">電話・受付時間<input type="text" id="r_w1t" data-f="窓口①の電話・受付時間"></label>
+    </div>
+    <div class="row">
+      <label class="f">窓口②<input type="text" id="r_w2" data-f="窓口②" placeholder="例：子どもの学校"></label>
+      <label class="f">電話・受付時間<input type="text" id="r_w2t" data-f="窓口②の電話・受付時間"></label>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>使っている制度と、次の手続き<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">使っているものに印をつけて、次の届け出や更新の時期を書いておきましょう。名前や条件は市区町村や学校によって違います。</p>
+    <label class="c"><input type="checkbox" id="r_c1" data-f="児童扶養手当">児童扶養手当<small>毎年の届け出が必要です。</small></label>
+    <label class="c"><input type="checkbox" id="r_c2" data-f="就学援助">就学援助</label>
+    <label class="c"><input type="checkbox" id="r_c3" data-f="ひとり親家庭の医療費助成">ひとり親家庭の医療費助成</label>
+    <label class="f">次の届け出・更新の時期<textarea id="r_next" data-f="次の届け出・更新の時期" placeholder="例：夏ごろ 児童扶養手当の届け出"></textarea></label>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>困ったときの順番を決めておく<svg class="mini" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g class="move"><use href="#pic"/></g></svg></h2>
+    <p class="hint">急いでいるときほど、だれに先に連絡するかが決まっていると楽になります。</p>
+    <label class="f">お金のことで困ったら<input type="text" id="r_o1" data-f="お金のことで困ったら" placeholder="例：まず窓口①に電話 → 実家の母に相談"></label>
+    <label class="f">子どものことで困ったら<input type="text" id="r_o2" data-f="子どものことで困ったら"></label>
+  </section>
+
+  <section>
+    <button class="btn" id="copy" type="button">書いた内容をコピーする</button>
+    <p class="msg" id="copymsg" role="status"></p>
+    <p class="hint">コピーした文は、自分のLINEのメモなどに貼り付けて残せます。書いた内容はこの端末のブラウザの中だけに残り、どこにも送信されません（ブラウザの設定によっては消えることがあります）。</p>
+    <button class="btn2" id="clear" type="button">書いた内容を消す</button>
+  </section>
+
+  <footer>
+    <span>このメモは、ご自身で頼れる先を整理するためのものです。制度の名前や条件は、お住まいの市区町村で確かめてください。特定の商品をおすすめするものではありません。</span>
+    <span>作成：杉浦円</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var KEY=document.body.getAttribute('data-key');
+  var els=[].slice.call(document.querySelectorAll('[data-f]'));
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  function save(){
+    var o={};
+    els.forEach(function(el){o[el.id]=(el.type==='checkbox')?el.checked:el.value;});
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+  els.forEach(function(el){
+    var v=saved[el.id];
+    if(v!==undefined){ if(el.type==='checkbox'){el.checked=!!v;} else {el.value=v;} }
+    el.addEventListener('input',save); el.addEventListener('change',save);
+  });
+  var msg=document.getElementById('copymsg');
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['【'+document.title+'】'];
+    els.forEach(function(el){
+      var label=el.getAttribute('data-f');
+      if(el.type==='checkbox'){ lines.push((el.checked?'☑ ':'☐ ')+label); }
+      else if(el.value.trim()){ lines.push('■'+label+'\n'+el.value.trim()); }
+    });
+    var text=lines.join('\n');
+    function fail(){ msg.textContent='コピーできませんでした。書いた欄を長押しして、文字を選んでコピーしてください。'; }
+    try{
+      if(!navigator.clipboard){ fail(); return; }
+      navigator.clipboard.writeText(text).then(function(){ msg.textContent='コピーしました。LINEのメモなどに貼り付けて残せます。'; },fail);
+    }catch(e){ fail(); }
+  });
+  var clearBtn=document.getElementById('clear'), armed=false;
+  clearBtn.addEventListener('click',function(){
+    if(!armed){ armed=true; clearBtn.textContent='もう一度押すと、書いた内容がすべて消えます'; return; }
+    els.forEach(function(el){ if(el.type==='checkbox'){el.checked=false;} else {el.value='';} });
+    save(); armed=false; clearBtn.textContent='書いた内容を消す'; msg.textContent='書いた内容を消しました。';
+  });
+})();
+</script>
+</body>
+</html>
